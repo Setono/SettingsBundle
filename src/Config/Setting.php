@@ -20,9 +20,14 @@ final class Setting
 
     public bool $nullable;
 
+    public ?string $label = null;
+
+    public ?string $help = null;
+
     public ?string $formType = null;
 
-    public ?string $label = null;
+    /** @var array<string, mixed> */
+    public array $formTypeOptions = [];
 
     /**
      * @param list<string> $types
@@ -56,8 +61,10 @@ final class Setting
         foreach ($reflectionProperty->getAttributes(SettingAttribute::class) as $attribute) {
             /** @var SettingAttribute $settingAttribute */
             $settingAttribute = $attribute->newInstance();
-            $obj->formType = $settingAttribute->formType;
             $obj->label = $settingAttribute->label;
+            $obj->help = $settingAttribute->help;
+            $obj->formType = $settingAttribute->formType;
+            $obj->formTypeOptions = $settingAttribute->formTypeOptions;
         }
 
         return $obj;

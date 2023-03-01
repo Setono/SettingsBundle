@@ -9,5 +9,10 @@ final class Setting
 {
     public ?string $label = null;
 
+    public ?string $help = null;
+
     public ?string $formType = null;
+
+    /** @var array<string, mixed> */
+    public array $formTypeOptions = [];
 }

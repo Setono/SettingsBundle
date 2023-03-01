@@ -26,9 +26,10 @@ final class SettingsType extends AbstractType
     {
         $settingsConfig = $this->settingsRegistry->get($options['data_class']);
         foreach ($settingsConfig->settings as $setting) {
-            $builder->add($setting->name, $setting->formType, array_filter([
+            $builder->add($setting->name, $setting->formType, array_filter(array_merge($setting->formTypeOptions, [
                 'label' => $setting->label,
-            ]));
+                'help' => $setting->help,
+            ])));
         }
     }
 
