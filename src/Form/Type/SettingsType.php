@@ -13,7 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * @extends AbstractType<SettingsInterface>
  */
-final class ValuesType extends AbstractType
+final class SettingsType extends AbstractType
 {
     public function __construct(private readonly SettingsRegistryInterface $settingsRegistry)
     {
