@@ -1,0 +1,11 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping">
+    <!-- TODO Make this a mapped super class -->
+    <entity name="Setono\SettingsBundle\Entity\Settings" table="setono_settings__settings">
+        <id name="id" column="id" type="integer">
+            <generator strategy="AUTO"/>
+        </id>
+
+        <field name="class" unique="true"/>
+        <field name="values" column="`values`" type="text"/>
+    </entity>
+</doctrine-mapping>
